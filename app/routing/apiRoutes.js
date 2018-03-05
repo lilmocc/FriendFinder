@@ -10,10 +10,9 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
-        var lowest = 10000000;
+        var lowest = 999999999;
         var bestFriend;
 
-        //For loop through each friend in friends
         for (var i = 0; i < friends.length; i++) {
             var compare = [];
 
@@ -28,9 +27,6 @@ module.exports = function(app) {
                 bestFriend = friends[i];
             }
         }
-
-
         res.json(bestFriend);
-
         friends.push(req.body);
     });
